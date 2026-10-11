@@ -1,0 +1,1 @@
+ALTER TABLE "fafs_buildings" ADD COLUMN "status_reason" text DEFAULT '' NOT NULL;
