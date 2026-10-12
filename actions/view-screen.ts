@@ -13,11 +13,13 @@ import { and, asc, eq } from "drizzle-orm";
 import { z } from "zod";
 
 import { getDb, schema } from "../server/db.js";
+import { fafsAccess } from "../server/app-roles.js";
 
 export default defineAction({
   description:
     "See what the user is currently looking at on screen. Returns the current navigation state for the app canvas plus agent rail. Always call this first before taking any action.",
   schema: z.object({}),
+  authorize: fafsAccess.requireAny("site_manager", "supervisor", "view_only"),
   http: false,
   readOnly: true,
   run: async () => {

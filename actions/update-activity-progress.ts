@@ -4,6 +4,7 @@ import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 
 import { getDb, schema } from "../server/db.js";
+import { fafsAccess } from "../server/app-roles.js";
 
 export default defineAction({
   description: "Update one building activity's progress and record the old and new values in the audit history.",
@@ -12,6 +13,7 @@ export default defineAction({
     activityId: z.string().min(1).describe("Activity record id"),
     progress: z.number().min(0).max(100).describe("New activity progress percentage from 0 to 100"),
   }),
+  authorize: fafsAccess.requireAny("site_manager", "supervisor"),
   run: async ({ buildingId, activityId, progress }) => {
     const db = getDb();
     const [building] = await db.select().from(schema.buildings).where(eq(schema.buildings.id, buildingId)).limit(1);

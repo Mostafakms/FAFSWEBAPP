@@ -35,6 +35,7 @@ function pathForView(view?: string): string {
     case "map":
     case "reports":
     case "settings":
+    case "users":
     case "history":
       return "/";
     default:

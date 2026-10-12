@@ -3,12 +3,14 @@ import { asc, desc, eq, inArray } from "drizzle-orm";
 import { z } from "zod";
 
 import { getDb, schema } from "../server/db.js";
+import { fafsAccess } from "../server/app-roles.js";
 
 export default defineAction({
   description: "Read the FAFS project, enabled activities, buildings, progress and recent audit history.",
   schema: z.object({
     historyLimit: z.number().int().min(1).max(100).default(20).describe("Maximum recent audit rows to return"),
   }),
+  authorize: fafsAccess.requireAny("site_manager", "supervisor", "view_only"),
   http: { method: "GET" },
   readOnly: true,
   run: async ({ historyLimit }) => {

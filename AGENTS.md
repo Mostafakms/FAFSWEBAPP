@@ -52,5 +52,19 @@ Purpose: operate the Amreya refinery fire-alarm project from `/` (dashboard, fac
 | `delete-building` | Permanently delete a facility and its activity progress and audit history. Requires human approval when called by the agent. |
 | `update-activity-progress` | Save a 0–100 activity percentage and append an audit event. |
 | `save-project-settings` | Update project details and activity weights; enabled weights must total 100%. |
+| `get-current-access` | Read the signed-in user's assigned FAFS role and effective project/progress permissions. |
+
+FAFS roles are `site_manager`, `supervisor`, and `view_only`. Supervisors may
+only update building activity progress; Site Managers may manage buildings,
+settings, imports, and user access; View only accounts can read project data.
+Write actions enforce roles server-side. Site Managers create accounts in
+People & access using only a username, password, and FAFS role, and can reset
+passwords or change usernames and roles there. There is no self-registration,
+email invitation, email sign-in, or self-service password change/reset.
+Password-bearing account operations use authenticated Better Auth endpoints,
+not agent-callable actions, so passwords never enter prompts or action logs.
+Existing accounts receive a username based on their previous email local-part
+when username-based sign-in is first enabled. An unassigned account has no
+project access or write access.
 
 `navigation` carries `view` and optional `buildingId`. The schematic map is illustrative until the site plan/CAD files are supplied; no project facilities are seeded without the actual workbook.

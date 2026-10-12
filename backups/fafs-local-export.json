@@ -1,0 +1,296 @@
+{
+  "exportedAt": "2026-10-12T20:17:08.253Z",
+  "source": "local PGlite",
+  "counts": {
+    "fafs_projects": 1,
+    "fafs_activities": 8,
+    "fafs_buildings": 14,
+    "fafs_activity_progress": 1,
+    "fafs_progress_history": 1
+  },
+  "data": {
+    "fafs_projects": [
+      {
+        "id": "fafs-amreya-project",
+        "name": "Fire Alarm System (FAFS)",
+        "description": "Amreya Petroleum Refining Company — project progress control.",
+        "start_date": "",
+        "planned_completion_date": "",
+        "status": "In Progress",
+        "updated_at": "2026-10-08 23:45:47.684+02"
+      }
+    ],
+    "fafs_activities": [
+      {
+        "id": "fafs-activity-shop-drawings",
+        "project_id": "fafs-amreya-project",
+        "name": "Shop Drawings, Datasheets, and Design Verification",
+        "weight": 0,
+        "sort_order": 0,
+        "enabled": true
+      },
+      {
+        "id": "fafs-activity-first-fix",
+        "project_id": "fafs-amreya-project",
+        "name": "First Fix",
+        "weight": 57,
+        "sort_order": 1,
+        "enabled": true
+      },
+      {
+        "id": "fafs-activity-cable-pulling",
+        "project_id": "fafs-amreya-project",
+        "name": "Cable Pulling",
+        "weight": 20,
+        "sort_order": 2,
+        "enabled": true
+      },
+      {
+        "id": "fafs-activity-device-installation",
+        "project_id": "fafs-amreya-project",
+        "name": "Device Installation",
+        "weight": 9,
+        "sort_order": 3,
+        "enabled": true
+      },
+      {
+        "id": "fafs-activity-termination",
+        "project_id": "fafs-amreya-project",
+        "name": "Termination",
+        "weight": 9,
+        "sort_order": 4,
+        "enabled": true
+      },
+      {
+        "id": "fafs-activity-programming",
+        "project_id": "fafs-amreya-project",
+        "name": "Programming, Testing and Commissioning",
+        "weight": 4,
+        "sort_order": 5,
+        "enabled": true
+      },
+      {
+        "id": "fafs-activity-as-built",
+        "project_id": "fafs-amreya-project",
+        "name": "As-built",
+        "weight": 0,
+        "sort_order": 6,
+        "enabled": true
+      },
+      {
+        "id": "fafs-activity-handover",
+        "project_id": "fafs-amreya-project",
+        "name": "Handover",
+        "weight": 1,
+        "sort_order": 7,
+        "enabled": true
+      }
+    ],
+    "fafs_buildings": [
+      {
+        "id": "3a8be752-7a2e-4dcf-9c2f-294c7806236d",
+        "project_id": "fafs-amreya-project",
+        "number": "2/2",
+        "name": "HSE Building",
+        "weight": 1.5,
+        "manual_status": "Auto",
+        "status_reason": "",
+        "map_polygon": "[[218.8,77.2],[219.1,80.3],[220.5,80],[220.5,83.5],[222.1,83.2],[222.3,81.8],[235.1,81.5],[234.9,83.2],[237.3,83.2],[237.2,80.2],[238.7,80],[238.4,77.5]]",
+        "enabled": true,
+        "created_at": "2026-10-10 13:32:54.594+02",
+        "updated_at": "2026-10-10T11:40:26.805Z"
+      },
+      {
+        "id": "9181d558-9d96-4db8-bdb3-615a789c754c",
+        "project_id": "fafs-amreya-project",
+        "number": "3/2",
+        "name": "HSE Chemicals Store Building",
+        "weight": 1,
+        "manual_status": "Removed from Scope",
+        "status_reason": "",
+        "map_polygon": "[[215.3,94.9],[218.3,94.8],[218,99.2],[215.4,99.1]]",
+        "enabled": true,
+        "created_at": "2026-10-10 13:35:21.163+02",
+        "updated_at": "2026-10-10T11:41:07.078Z"
+      },
+      {
+        "id": "acecdcbb-174b-4a64-a333-8641ae9bcc4b",
+        "project_id": "fafs-amreya-project",
+        "number": "4/3",
+        "name": "Chemical Laboratory Building",
+        "weight": 1,
+        "manual_status": "Auto",
+        "status_reason": "",
+        "map_polygon": "[[219,101.5],[222.9,101.4],[222.8,104.3],[233.8,104.5],[234.2,101],[238,101.2],[237.9,110.8],[233.9,111.1],[233.8,109.7],[222.8,109.8],[222.8,111.2],[219,111]]",
+        "enabled": true,
+        "created_at": "2026-10-10 13:34:11.573+02",
+        "updated_at": "2026-10-10T11:42:38.512Z"
+      },
+      {
+        "id": "ed8bbe65-b25e-4486-8009-274cb8a5021e",
+        "project_id": "fafs-amreya-project",
+        "number": "116/92",
+        "name": "Clinic Building 01",
+        "weight": 0.8,
+        "manual_status": "Auto",
+        "status_reason": "",
+        "map_polygon": "[[215.3,73],[219.4,73.5],[218.9,80.8],[215.4,81.1]]",
+        "enabled": true,
+        "created_at": "2026-10-10 13:44:52.12+02",
+        "updated_at": "2026-10-10T11:47:33.615Z"
+      },
+      {
+        "id": "7899141b-04a8-4f5c-b73c-fb244f781e8c",
+        "project_id": "fafs-amreya-project",
+        "number": "117/93",
+        "name": "Clinic Building 02",
+        "weight": 0.3,
+        "manual_status": "Auto",
+        "status_reason": "",
+        "map_polygon": "[[197.5,61.7],[200.4,59.2],[201.9,60.9],[200.7,64.7]]",
+        "enabled": true,
+        "created_at": "2026-10-10 13:45:33.423+02",
+        "updated_at": "2026-10-10T11:47:56.272Z"
+      },
+      {
+        "id": "91916cf5-b245-42f9-ba38-5c1e3ce870c2",
+        "project_id": "fafs-amreya-project",
+        "number": "117/93-2",
+        "name": "Clinic Building 03",
+        "weight": 0.3,
+        "manual_status": "Auto",
+        "status_reason": "",
+        "map_polygon": "[[196.7,63.1],[199.6,65.6],[197.6,67.2],[194.8,65.6]]",
+        "enabled": true,
+        "created_at": "2026-10-10 13:46:33.362+02",
+        "updated_at": "2026-10-10T11:48:06.185Z"
+      },
+      {
+        "id": "ade97180-bb6a-4ddc-a769-e62c794fea0b",
+        "project_id": "fafs-amreya-project",
+        "number": "115/91",
+        "name": "Legal Building",
+        "weight": 1.5,
+        "manual_status": "Auto",
+        "status_reason": "",
+        "map_polygon": "[[279.6,38.2],[289.7,38.3],[289.7,46],[280.1,46.4]]",
+        "enabled": true,
+        "created_at": "2026-10-10 13:51:19.251+02",
+        "updated_at": "2026-10-10T11:51:31.801Z"
+      },
+      {
+        "id": "453e3398-4f1d-411a-94a1-1ddaa00bad05",
+        "project_id": "fafs-amreya-project",
+        "number": "9/6",
+        "name": "Training Building",
+        "weight": 1.5,
+        "manual_status": "Auto",
+        "status_reason": "",
+        "map_polygon": "[[233.7,197.1],[233.5,173],[240.7,172.8],[240.3,197.3]]",
+        "enabled": true,
+        "created_at": "2026-10-10 14:08:41.406+02",
+        "updated_at": "2026-10-10T12:09:09.304Z"
+      },
+      {
+        "id": "045b2aca-eea6-4884-9932-0d06e57e5494",
+        "project_id": "fafs-amreya-project",
+        "number": "1/1",
+        "name": "Administrative Building",
+        "weight": 5,
+        "manual_status": "Auto",
+        "status_reason": "",
+        "map_polygon": "[[217.5,63.2],[217.3,51.7],[222.5,51.3],[222.7,54.3],[236.4,54.3],[236.1,51],[241.3,51.4],[240.9,63.4],[236.5,63.3],[236,60.6],[222.3,60.8],[222.5,63.6]]",
+        "enabled": true,
+        "created_at": "2026-10-10 13:22:50.34+02",
+        "updated_at": "2026-10-10T11:30:26.116Z"
+      },
+      {
+        "id": "2fb75059-fd12-4142-8837-530ed4299de6",
+        "project_id": "fafs-amreya-project",
+        "number": "113/89",
+        "name": "Security Building 01",
+        "weight": 0.4,
+        "manual_status": "Auto",
+        "status_reason": "",
+        "map_polygon": "[[221.8,30.7],[227.7,30.3],[228.2,34.6],[221.8,34.5]]",
+        "enabled": true,
+        "created_at": "2026-10-10 13:23:25.477+02",
+        "updated_at": "2026-10-10T11:31:08.558Z"
+      },
+      {
+        "id": "c99515f1-6878-4c36-95da-79602dfcb350",
+        "project_id": "fafs-amreya-project",
+        "number": "114/90",
+        "name": "Security Building 02",
+        "weight": 0.4,
+        "manual_status": "Auto",
+        "status_reason": "",
+        "map_polygon": "[[232,30],[238.3,29.7],[238.3,34.3],[232,34.5]]",
+        "enabled": true,
+        "created_at": "2026-10-10 13:24:06.671+02",
+        "updated_at": "2026-10-10T11:31:20.394Z"
+      },
+      {
+        "id": "acbf254a-d21c-4d8a-8f13-99eb9fe065ff",
+        "project_id": "fafs-amreya-project",
+        "number": "124/113",
+        "name": "Project Implementation Building",
+        "weight": 1,
+        "manual_status": "Auto",
+        "status_reason": "",
+        "map_polygon": "[[283.6,122],[290.8,122.1],[290.6,126.4],[283.7,126.8]]",
+        "enabled": true,
+        "created_at": "2026-10-10 14:11:57.04+02",
+        "updated_at": "2026-10-10T12:15:22.737Z"
+      },
+      {
+        "id": "35407111-da93-4e08-bf44-3f56d801397b",
+        "project_id": "fafs-amreya-project",
+        "number": "125/114",
+        "name": "Maintenance Building",
+        "weight": 1,
+        "manual_status": "Auto",
+        "status_reason": "",
+        "map_polygon": "[[313.1,122.1],[306.2,122.1],[306.1,126.8],[313.3,127]]",
+        "enabled": true,
+        "created_at": "2026-10-10 14:14:30.481+02",
+        "updated_at": "2026-10-10T12:16:18.834Z"
+      },
+      {
+        "id": "277147f2-181e-4a2a-b1d3-0ffb104e672d",
+        "project_id": "fafs-amreya-project",
+        "number": "126/115",
+        "name": "Inspection Building",
+        "weight": 1,
+        "manual_status": "Auto",
+        "status_reason": "",
+        "map_polygon": "[[294.9,121.9],[301.8,122.4],[301.5,126.9],[295.2,126.6]]",
+        "enabled": true,
+        "created_at": "2026-10-10 14:13:53.015+02",
+        "updated_at": "2026-10-10T12:16:32.372Z"
+      }
+    ],
+    "fafs_activity_progress": [
+      {
+        "id": "de79f4bf-af4a-4aff-9f40-7ebe0649d136",
+        "building_id": "2fb75059-fd12-4142-8837-530ed4299de6",
+        "activity_id": "fafs-activity-shop-drawings",
+        "progress": 30,
+        "updated_at": "2026-10-12T20:07:14.556Z",
+        "updated_by": "mansour@accounts.fafs.invalid"
+      }
+    ],
+    "fafs_progress_history": [
+      {
+        "id": "a4d29cb2-8081-4c99-890f-056ca9e2bdbf",
+        "project_id": "fafs-amreya-project",
+        "building_id": "2fb75059-fd12-4142-8837-530ed4299de6",
+        "activity_id": "fafs-activity-shop-drawings",
+        "actor_email": "mansour@accounts.fafs.invalid",
+        "old_value": 0,
+        "new_value": 30,
+        "created_at": "2026-10-12T20:07:14.556Z"
+      }
+    ]
+  }
+}

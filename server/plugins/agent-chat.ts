@@ -6,6 +6,7 @@ import {
 
 import actionsRegistry from "../../.generated/actions-registry.js";
 import { appOperationFinalResponseGuard } from "../agent/app-operation-guard.js";
+import "../app-roles.js";
 
 export default createAgentChatPlugin({
   appId: "app",

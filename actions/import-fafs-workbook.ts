@@ -3,6 +3,7 @@ import { and, eq, inArray, sql } from "drizzle-orm";
 import { z } from "zod";
 
 import { getDb, schema } from "../server/db.js";
+import { fafsAccess } from "../server/app-roles.js";
 
 const activityInput = z.object({
   id: z.string().min(1),
@@ -35,6 +36,7 @@ export default defineAction({
     progress: z.array(progressInput).max(16000),
     removeBuildingIds: z.array(z.string().min(1)).max(100),
   }),
+  authorize: fafsAccess.requireAny("site_manager"),
   run: async (input) => {
     const activityIds = input.activities.map((activity) => activity.id);
     const buildingNumbers = input.buildings.map((building) => building.number);

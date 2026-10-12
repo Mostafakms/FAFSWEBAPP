@@ -3,6 +3,7 @@ import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 
 import { getDb, schema } from "../server/db.js";
+import { fafsAccess } from "../server/app-roles.js";
 
 const activityInput = z.object({
   id: z.string().optional().describe("Existing activity id; omit for a new activity"),
@@ -22,6 +23,7 @@ export default defineAction({
     status: z.enum(["In Progress", "On Hold", "Completed"]).describe("Project status"),
     activities: z.array(activityInput).min(1).max(50).describe("Complete activity configuration; enabled weights must total 100 percent"),
   }),
+  authorize: fafsAccess.requireAny("site_manager"),
   run: async (input) => {
     const activeTotal = input.activities.filter((activity) => activity.enabled)
       .reduce((total, activity) => total + activity.weight, 0);

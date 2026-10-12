@@ -3,6 +3,7 @@ import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 
 import { getDb, schema } from "../server/db.js";
+import { fafsAccess } from "../server/app-roles.js";
 
 export default defineAction({
   description: "Create or edit a FAFS building, including its project weight, Auto/Delayed/On Hold/Removed from Scope status, required delay or hold reason, and verified site-map polygon.",
@@ -22,6 +23,7 @@ export default defineAction({
       context.addIssue({ code: "custom", path: ["statusReason"], message: "A reason is required for Delayed or On Hold status." });
     }
   }),
+  authorize: fafsAccess.requireAny("site_manager"),
   run: async ({ id, number, name, weight, manualStatus, statusReason, mapPolygon }) => {
     const db = getDb();
     const [project] = await db.select().from(schema.projects).limit(1);

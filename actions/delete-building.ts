@@ -4,12 +4,14 @@ import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 
 import { getDb, schema } from "../server/db.js";
+import { fafsAccess } from "../server/app-roles.js";
 
 export default defineAction({
   description: "Permanently delete a FAFS facility and its activity progress and audit history. Requires human approval when called by the agent.",
   schema: z.object({
     id: z.string().min(1).describe("The facility id to permanently delete"),
   }),
+  authorize: fafsAccess.requireAny("site_manager"),
   needsApproval: true,
   run: async ({ id }) => {
     const db = getDb();

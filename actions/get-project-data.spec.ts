@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const mocks = vi.hoisted(() => ({
   getDb: vi.fn(),
+  allowProjectRole: vi.fn(),
 }));
 
 vi.mock("../server/db.js", () => ({
@@ -15,11 +16,16 @@ vi.mock("../server/db.js", () => ({
   },
 }));
 
+vi.mock("../server/app-roles.js", () => ({
+  fafsAccess: { requireAny: () => mocks.allowProjectRole },
+}));
+
 import action from "./get-project-data";
 
 describe("get-project-data", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    mocks.allowProjectRole.mockResolvedValue(undefined);
   });
 
   it("returns an empty project shell when no project row exists yet", async () => {

@@ -2,10 +2,15 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const mocks = vi.hoisted(() => ({
   readAppState: vi.fn(),
+  allowProjectRole: vi.fn(),
 }));
 
 vi.mock("@agent-native/core/application-state", () => ({
   readAppState: mocks.readAppState,
+}));
+
+vi.mock("../server/app-roles.js", () => ({
+  fafsAccess: { requireAny: () => mocks.allowProjectRole },
 }));
 
 import action from "./view-screen";
@@ -13,6 +18,7 @@ import action from "./view-screen";
 describe("view-screen", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    mocks.allowProjectRole.mockResolvedValue(undefined);
   });
 
   it("returns the current navigation state when present", async () => {
