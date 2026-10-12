@@ -3,15 +3,20 @@ import { reactRouter } from "@react-router/dev/vite";
 import { defineConfig } from "vite";
 
 const reactRouterPlugins = reactRouter as unknown as () => any[];
+
 const agentNativePlugins = agentNative as unknown as (
   options?: Parameters<typeof agentNative>[0],
 ) => any[];
+
+const isVercel = process.env.VERCEL === "1";
+
 export default defineConfig({
   server: {
     hmr: {
       overlay: false,
     },
   },
+
   optimizeDeps: {
     entries: [
       "app/entry.client.tsx",
@@ -21,11 +26,16 @@ export default defineConfig({
       "app/routes/{home,chat.$threadId}.tsx",
     ],
   },
+
   plugins: [
     ...reactRouterPlugins(),
+
     ...agentNativePlugins({
       ssrStubs: ["shiki"],
-      //  nitro: { preset: "vercel" },
+
+      ...(isVercel
+        ? { nitro: { preset: "vercel" } }
+        : {}),
     }),
   ],
 });
