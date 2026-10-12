@@ -32,10 +32,14 @@ export default defineConfig({
 
     ...agentNativePlugins({
       ssrStubs: ["shiki"],
+<<<<<<< HEAD
 
       ...(isVercel
         ? { nitro: { preset: "vercel" } }
         : {}),
+=======
+      nitro: { preset: "vercel" },
+>>>>>>> 32f7d900d89d6a646efacad584b498dc9c8b8914
     }),
   ],
 });
